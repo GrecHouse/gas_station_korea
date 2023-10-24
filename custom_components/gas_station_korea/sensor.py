@@ -159,7 +159,7 @@ class GasStationPriceSensor(SensorEntity):
     @property
     def extra_state_attributes(self):
         """Attributes."""
-        data = { 'oil_type': self.oil_type, 'base_date': self.base_date }
+        data = { 'oil_type': OIL_TYPE[self.oil_type], 'base_date': self.base_date }
         if self.diff != '-':
             data['price_diff'] = self.diff
         return data
