@@ -1,0 +1,12 @@
+{
+    "domain": "gas_station_korea",
+    "name": "주유소 유가정보",
+    "documentation": "https://github.com/GrecHouse/gas_station_korea",
+    "config_flow": true,
+    "codeowners": ["@GrecHouse"],
+    "dependencies": [],
+    "requirements": [],
+    "iot_class": "cloud_polling",
+    "issue_tracker": "https://github.com/GrecHouse/gas_station_korea/issues",
+    "version": "1.0.0"
+  }

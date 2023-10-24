@@ -1,0 +1,6 @@
+{
+    "name": "[KR] Gas Station Oil Price Sensor",
+    "country": "KR",
+    "domains": ["sensor"],  
+    "render_readme": true
+  }
