@@ -1,4 +1,4 @@
-![version](https://img.shields.io/badge/version-1.0.0-blue)
+![version](https://img.shields.io/badge/version-1.0.1-blue)
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
 
 # ⛽ 주유소 유가 정보 센서
@@ -20,7 +20,7 @@
 ## Version history
 | Version | Date        |               |
 | :-----: | :---------: | ------------- |
-| v1.0    | 2023.10.24  | 통합구성요소로 재개발 |
+| v1.0.1    | 2023.10.24  | 통합구성요소로 재개발 |
 
 <br>
 
@@ -85,9 +85,10 @@ place.map.kakao.com/`11111111`\
 <br>
 
 ## 설명
-- 전국평균 속성 중 `price diff` 는 전일대비 가격 변동 내역입니다.
+- 이전 `oil_price` 센서와 다르게 한 주유소의 유종별 센서를 각각 생성할 수 있습니다.
 - 추가한 주유소들은 `주유소이름-유종` 형태의 센서로 생성됩니다.
 ![Step3](images/step3.png)
+- 전국평균 속성 중 `price diff` 는 전일대비 가격 변동 내역입니다.
 - `등유` 는 카카오맵 정보에서 제공되지 않습니다. 전국평균가격만 지원됩니다.
 
 <br>
