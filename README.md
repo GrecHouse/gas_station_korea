@@ -27,8 +27,9 @@
 
 ## Installation
 
-### _My Home Assistant_ HACS로 바로 설치
-- 아래 링크를 클릭해서 설치하세요.
+### _My Home Assistant_ HACS로 설치
+- 아래 링크를 클릭해서 이동 후 다운로드 버튼을 눌러 설치하세요.
+- 다운로드 후 Home Assistant를 재시작합니다.
 
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=grechouse&repository=gas_station_korea&category=integration)
 
@@ -39,6 +40,7 @@
 - Add Custom Repository URL 에 `https://github.com/GrecHouse/gas_station_korea` 입력, \
   Category에 `Integration` 선택 후 ADD
 - HACS > Integrations 메뉴에서 우측 하단 + 버튼 누르고 `[KR] Oil Price Sensor` 검색하여 설치
+- Home Assistant 를 재시작합니다.
 
 ### 직접 설치
 - HA 설치 경로 아래 custom_components 에 gas_station_korea 폴더를 모두 그대로 넣어줍니다.
