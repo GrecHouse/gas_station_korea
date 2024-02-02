@@ -15,7 +15,7 @@ from homeassistant.components.sensor import SensorEntity
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.util import Throttle
 
-from .const import DOMAIN, MANUFACT, SW_VERSION, MODEL, CONF_STATION_ID, CONF_STATION_NAME, CONF_OIL_TYPE, OIL_TYPE, OIL_TYPE_CODE, API_URL, SUB_URL, ATTRIBUTION, NATIONAL_AVR
+from .const import DOMAIN, MANUFACT, SW_VERSION, MODEL, CONF_STATION_ID, CONF_STATION_NAME, CONF_OIL_TYPE, OIL_TYPE, OIL_TYPE_CODE, API_URL, SUB_URL, ATTRIBUTION, NATIONAL_AVR, WON
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -152,7 +152,7 @@ class GasStationPriceSensor(SensorEntity):
     @property
     def unit_of_measurement(self):
         """Return the unit the value is expressed in."""
-        return '원'
+        return WON
 
     @property
     def state(self):
@@ -195,7 +195,7 @@ class GasStationPriceSensor(SensorEntity):
         if 'price' in result:
             if self._name is None:
                 self._name = result.get('name')
-            self.price = result.get('price').replace(",","").replace("원","")
+            self.price = result.get('price').replace(",","").replace(WON,"")
             self.base_date = result.get('date')
         else:
             if self._name is None:

@@ -2,12 +2,13 @@ DOMAIN = "gas_station_korea"
 NAME = "Gas Station Korea"
 PLATFORM = "sensor"
 
-SW_VERSION = '1.0.0'
+SW_VERSION = '1.0.1'
 MANUFACT   = 'GrecHouse'
 MODEL = '주유소 유가정보'
 ATTRIBUTION = 'Provided by GrecHouse'
 
 NATIONAL_AVR = '전국평균'
+WON = '원'
 OIL_TYPE = {
     '01': '고급휘발유',
     '02': '휘발유',
