@@ -8,7 +8,7 @@
         "step": {
             "user": {
                 "title": "Gas station information settings",
-                "description": "Enter gas station information and fuel type. The gas station key can be found in the Kakao Map URL. Entering 0 in the gas station key will retrieve the national average gas price.",
+                "description": "Enter gas station information and fuel type. The gas station key can be found in the [Kakao Map URL](https://map.kakao.com/). Entering 0 in the gas station key will retrieve the national average gas price.",
                 "data": {
                     "oil_type": "Fuel type",
                     "station_id": "Gas station key",
