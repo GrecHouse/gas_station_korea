@@ -13,6 +13,7 @@ import urllib3
 
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.helpers.entity import generate_entity_id
 from homeassistant.util import Throttle
 
 from .const import DOMAIN, MANUFACT, SW_VERSION, MODEL, CONF_STATION_ID, CONF_STATION_NAME, CONF_OIL_TYPE, OIL_TYPE, OIL_TYPE_CODE, API_URL, SUB_URL, ATTRIBUTION, NATIONAL_AVR, WON
@@ -119,7 +120,6 @@ class GasStationPriceSensor(SensorEntity):
 
     def __init__(self, station_id, station_name, oil_type, api):
         """Initialize the GasStationPrice sensor."""
-        self._entity_id = None
         self._name = station_name
         self.oil_type = oil_type
         self.price = 0
@@ -130,6 +130,7 @@ class GasStationPriceSensor(SensorEntity):
         self.firmware_version = SW_VERSION
         self.model = MODEL
         self.manufacturer = MANUFACT
+        self.entity_id = generate_entity_id( "gas_station_korea.station_{}", f"{self.station_id}_{self.oil_type}", hass=self._api._hass )
 
     @property
     def unique_id(self):
@@ -170,13 +171,19 @@ class GasStationPriceSensor(SensorEntity):
     @property
     def device_info(self):
         """Information about this entity/device."""
-        return {
+        device = {
             "identifiers": {(DOMAIN, self._name)},
             "name": self._name,
             "sw_version": self.firmware_version,
             "model": self.model,
             "manufacturer": self.manufacturer
         }
+
+        if self.station_id != "0":
+            device["configuration_url"] = f"https://place.map.kakao.com/{self.station_id}"
+
+        return device
+
 
     @property
     def attribution(self):
