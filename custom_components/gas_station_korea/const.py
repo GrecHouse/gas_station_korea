@@ -30,4 +30,4 @@ CONF_STATION_ID = 'station_id'
 CONF_STATION_NAME = 'station_name'
 
 API_URL = 'https://raw.githubusercontent.com/GrecHouse/api/master/oil.json'
-SUB_URL = 'https://place.map.kakao.com/main/v/{}?_={}'
+SUB_URL = 'https://map.kakao.com/api/place/info?output=json&confirmId={}'

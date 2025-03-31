@@ -1,4 +1,4 @@
-![version](https://img.shields.io/badge/version-1.0.2-blue)
+![version](https://img.shields.io/badge/version-1.0.3-blue)
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
 
 # ⛽ 주유소 유가 정보 센서
@@ -23,6 +23,7 @@
 | v1.0.0    | 2023.10.24  | 통합구성요소로 재개발 |
 | v1.0.1    | 2024.02.02  | '원' 처리 |
 | v1.0.2    | 2024.04.20  | 미세수정 by [@miumida](https://github.com/miumida) |
+| v1.0.3    | 2025.03.31  | kakao 수정 대응 |
 
 <br>
 
@@ -104,5 +105,3 @@ place.map.kakao.com/`11111111`\
 
 ## 버그 또는 문의사항
 네이버 카페 [HomeAssistant](https://cafe.naver.com/koreassistant/) `그렉하우스`
-
-

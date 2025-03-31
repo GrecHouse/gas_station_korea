@@ -80,34 +80,23 @@ class GasStationPriceAPI:
                 #_LOGGER.debug(self.result)
             else:
                 tsp = int(datetime.now().timestamp() * 1000)
-                req_url = SUB_URL.format(self.station_id, tsp)
-                #res = requests.get(req_url, timeout=10)
-                #res = await get_legacy_session(self).get(req_url, timeout=10)
+                req_url = SUB_URL.format(self.station_id)
                 session = async_get_clientsession(self._hass)
                 res = await session.get(req_url, timeout=10)
                 res.raise_for_status()
                 response = await res.json()
 
-                #{'isMapUser': False, 'isExist': False}
-                if not response.get('isExist'):
+                if not response.get('place'):
                     _LOGGER.error('station_id is wrong.')
                 else:
-                    self.result['name'] = response['basicInfo']['placenamefull']
+                    self.result['name'] = response['place']['placenamefull']
 
-                    info = response['oilPriceInfo']
-                    price_list = info['priceList']
-                    #_LOGGER.debug(priceList)
+                    info = response['place']['placetype']
+                    price_list = info['oilprice']
+                    #_LOGGER.debug(price_list)
 
-                    self.result['date'] = info['baseDate']
-
-                    if isinstance(price_list, list):
-                        for price in price_list:
-                            if self.type_name == price['type']:
-                                self.result['price'] = price['price']
-                                break
-                    elif len(price_list) > 0:
-                        if self.type_name == price_list['type']:
-                            self.result['price'] = price_list['price']
+                    self.result['price'] = price_list[self.type_code.lower() + 'value']
+                    self.result['date'] = price_list[self.type_code.lower() + 'moddttm']
 
                     #_LOGGER.debug(self.result)
 
@@ -202,7 +191,7 @@ class GasStationPriceSensor(SensorEntity):
         if 'price' in result:
             if self._name is None:
                 self._name = result.get('name')
-            self.price = result.get('price').replace(",","").replace(WON,"")
+            self.price = result.get('price')
             self.base_date = result.get('date')
         else:
             if self._name is None:
